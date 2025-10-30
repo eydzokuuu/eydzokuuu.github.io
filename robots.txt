@@ -1,1 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
 
+Sitemap: https://eydzokuuu.github.io/sitemap.xml
