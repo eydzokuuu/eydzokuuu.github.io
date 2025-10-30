@@ -62,7 +62,7 @@ nav a:hover {
 }
 
 .banner {
-  background: url("../images/banner.jpg") center/cover no-repeat;
+  background: url("../images/banner.bmp") center/cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 100px 20px;
@@ -249,4 +249,5 @@ blockquote {
   .menu-items {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+
 }
