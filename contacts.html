@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Sushi Time</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sushi Time</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="menu.html">Меню</a>
+            <a href="delivery.html">Доставка и оплата</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="contacts.html" style="color: #e60000;">Контакты</a>
+        </nav>
+        <button class="order-btn" onclick="location.href='order.html'">
+            Заказать (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <section>
+        <h2>📞 Контакты</h2>
+        
+        <div class="menu-items">
+            <div class="card">
+                <h3>📞 Телефоны</h3>
+                <p><strong>Заказ суши:</strong></p>
+                <p style="font-size: 1.2em; color: #e60000;">+7 (999) 123-45-67</p>
+                <p><strong>Общие вопросы:</strong></p>
+                <p>+7 (391) 234-56-78</p>
+            </div>
+            
+            <div class="card">
+                <h3>📍 Адрес</h3>
+                <p><strong>г. Красноярск</strong></p>
+                <p>ул. Карамзина, 16</p>
+                <p><strong>Время работы:</strong></p>
+                <p>Пн-Чт: 10:00 - 23:00</p>
+                <p>Пт-Вс: 10:00 - 00:00</p>
+            </div>
+            
+            <div class="card">
+                <h3>📧 Соцсети и почта</h3>
+                <p><strong>Email:</strong></p>
+                <p>info@sushitime.ru</p>
+                <p><strong>Социальные сети:</strong></p>
+                <p>
+                    <a href="#" style="color: #e60000;">VK</a> | 
+                    <a href="#" style="color: #e60000;">Instagram</a> |
+                    <a href="#" style="color: #e60000;">Telegram</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>🗺️ Мы на карте</h3>
+            <div class="card">
+                <!-- Здесь будет карта -->
+                <div style="background: #f0f0f0; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    <p>Здесь будет карта с нашим местоположением</p>
+                </div>
+                <p style="margin-top: 15px; text-align: center;">
+                    <strong>Как добраться:</strong> Остановка "Улица Карамзина", 
+                    автобусы № 12, 45, 67
+                </p>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>📝 Обратная связь</h3>
+            <div class="card">
+                <form onsubmit="sendMessage(event)">
+                    <div class="form-group">
+                        <label>Ваше имя:</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Ваш телефон:</label>
+                        <input type="tel" id="contact-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Сообщение:</label>
+                        <textarea id="contact-message" required></textarea>
+                    </div>
+                    <button type="submit" class="order-btn">Отправить сообщение</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sushi Time | Все права защищены</p>
+        <p>
+            <a href="#">VK</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const phone = document.getElementById('contact-phone').value;
+            const message = document.getElementById('contact-message').value;
+            
+            alert(`Спасибо, ${name}! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.`);
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-phone').value = '';
+            document.getElementById('contact-message').value = '';
+        }
+
+        // Функция для звонка
+        function callUs() {
+            if (confirm('Позвонить по номеру +7 (999) 123-45-67?')) {
+                window.location.href = 'tel:+79991234567';
+            }
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

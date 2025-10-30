@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sushi Time - Главная</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Sushi Time</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="menu.html">Меню</a>
+      <a href="delivery.html">Доставка и оплата</a>
+      <a href="reviews.html">Отзывы</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <button class="order-btn" onclick="location.href='order.html'">Заказать</button>
+  </header>
+
+  <div class="banner">
+    <h2>🔥 Акция: 2 сета по цене 1 🔥</h2>
+  </div>
+
+  <section>
+    <h2>Популярные позиции</h2>
+    <div class="menu-items">
+      <div class="card">
+        <img src="images/sushi-1.jpg" alt="Суши Лосось">
+        <h3>Суши Лосось</h3>
+        <p>250 ₽</p>
+        <button class="add-to-cart" onclick="addToCart('Суши Лосось', 250)">В корзину</button>
+      </div>
+      <div class="card">
+        <img src="images/sushi-2.jpg" alt="Роллы Калифорния">
+        <h3>Роллы Калифорния</h3>
+        <p>350 ₽</p>
+        <button class="add-to-cart" onclick="addToCart('Роллы Калифорния', 350)">В корзину</button>
+      </div>
+      <div class="card">
+        <img src="images/sushi-3.jpg" alt="Сет Филадельфия">
+        <h3>Сет Филадельфия</h3>
+        <p>990 ₽</p>
+        <button class="add-to-cart" onclick="addToCart('Сет Филадельфия', 990)">В корзину</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>О нас</h2>
+    <p>Мы готовим только из свежих продуктов. Быстрая доставка и лучшие цены в городе!</p>
+  </section>
+
+  <section>
+    <h2>Последние отзывы</h2>
+    <blockquote>"Очень вкусно, заказываем всей семьёй!" – Анна</blockquote>
+    <blockquote>"Быстро привезли, всё свежее!" – Магомед</blockquote>
+    <a href="reviews.html" class="more-link">Все отзывы</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Sushi Time | Все права защищены</p>
+    <p>
+      <a href="#">VK</a> | 
+      <a href="#">Instagram</a>
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

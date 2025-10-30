@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - Sushi Time</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sushi Time</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="menu.html">Меню</a>
+            <a href="delivery.html">Доставка и оплата</a>
+            <a href="reviews.html" style="color: #e60000;">Отзывы</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <button class="order-btn" onclick="location.href='order.html'">
+            Заказать (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <section>
+        <h2>💬 Отзывы наших клиентов</h2>
+        
+        <div class="menu-items">
+            <div class="card">
+                <h3>Анна ⭐⭐⭐⭐⭐</h3>
+                <blockquote>
+                    "Заказываем уже в третий раз! Всегда свежие роллы, быстрая доставка. 
+                    Особенно нравятся роллы Филадельфия - просто пальчики оближешь!"
+                </blockquote>
+                <p><small>15.01.2025</small></p>
+            </div>
+            
+            <div class="card">
+                <h3>Магомед ⭐⭐⭐⭐⭐</h3>
+                <blockquote>
+                    "Быстро привезли, всё свежее! Курьер очень вежливый. 
+                    Заказал сет Император - хватило на компанию из 4 человек. Рекомендую!"
+                </blockquote>
+                <p><small>12.01.2025</small></p>
+            </div>
+            
+            <div class="card">
+                <h3>Екатерина ⭐⭐⭐⭐</h3>
+                <blockquote>
+                    "Очень вкусно, заказываем всей семьёй! Детям особенно нравятся роллы Калифорния. 
+                    Единственное - в пятницу вечером пришлось ждать доставку чуть дольше."
+                </blockquote>
+                <p><small>10.01.2025</small></p>
+            </div>
+            
+            <div class="card">
+                <h3>Дмитрий ⭐⭐⭐⭐⭐</h3>
+                <blockquote>
+                    "Лучшие суши в городе! По соотношению цена/качество вне конкуренции. 
+                    Регулярно заказываю бизнес-ланч - очень удобно и вкусно."
+                </blockquote>
+                <p><small>08.01.2025</small></p>
+            </div>
+            
+            <div class="card">
+                <h3>Ольга ⭐⭐⭐⭐⭐</h3>
+                <blockquote>
+                    "Впервые попробовала суши с угрем - невероятно вкусно! 
+                    Спасибо за рекомендацию оператора. Теперь это мой любимый вид суши."
+                </blockquote>
+                <p><small>05.01.2025</small></p>
+            </div>
+            
+            <div class="card">
+                <h3>Сергей ⭐⭐⭐⭐</h3>
+                <blockquote>
+                    "Качество на высоте, доставка вовремя. Особенно порадовала акция - 
+                    2 сета по цене одного. Будем заказывать ещё!"
+                </blockquote>
+                <p><small>02.01.2025</small></p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <h3>Оставить отзыв</h3>
+            <form onsubmit="addReview(event)">
+                <div class="form-group">
+                    <input type="text" id="review-name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="review-text" placeholder="Ваш отзыв" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Оценка:</label>
+                    <select id="review-rating">
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="1">⭐</option>
+                    </select>
+                </div>
+                <button type="submit" class="order-btn">Отправить отзыв</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sushi Time | Все права защищены</p>
+        <p>
+            <a href="#">VK</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script>
+        function addReview(event) {
+            event.preventDefault();
+            const name = document.getElementById('review-name').value;
+            const text = document.getElementById('review-text').value;
+            const rating = document.getElementById('review-rating').value;
+            
+            alert('Спасибо за ваш отзыв! После модерации он появится на сайте.');
+            document.getElementById('review-name').value = '';
+            document.getElementById('review-text').value = '';
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - Sushi Time</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sushi Time</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="menu.html">Меню</a>
+            <a href="delivery.html">Доставка и оплата</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <button class="order-btn" onclick="location.href='order.html'">
+            Заказать (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <section>
+        <h2>🛒 Оформление заказа</h2>
+        
+        <div class="menu-category">
+            <h3>Ваш заказ</h3>
+            <div id="cart-items" class="card">
+                <!-- Сюда добавляются товары из корзины -->
+            </div>
+            <div class="cart-total">
+                <h3>Итого: <span id="cart-total">0</span> ₽</h3>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>📋 Данные для доставки</h3>
+            <div class="card">
+                <form onsubmit="placeOrder(); return false;">
+                    <div class="form-group">
+                        <label>Ваше имя *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Телефон *</label>
+                        <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Адрес доставки *</label>
+                        <textarea id="address" placeholder="Улица, дом, квартира" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Время доставки</label>
+                        <select id="delivery-time">
+                            <option value="asap">Как можно скорее</option>
+                            <option value="30">Через 30 минут</option>
+                            <option value="60">Через 1 час</option>
+                            <option value="90">Через 1.5 часа</option>
+                            <option value="120">Через 2 часа</option>
+                            <option value="specific">Ко времени</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Способ оплаты</label>
+                        <select id="payment-method">
+                            <option value="cash">Наличными курьеру</option>
+                            <option value="card_online">Картой онлайн</option>
+                            <option value="card_courier">Картой курьеру</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Комментарий к заказу</label>
+                        <textarea id="comments" placeholder="Пожелания, особенности доставки..."></textarea>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="order-btn" style="padding: 15px 30px; font-size: 1.2em;">
+                            🍣 Подтвердить заказ
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="menu.html" class="more-link">← Вернуться к меню</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sushi Time | Все права защищены</p>
+        <p>
+            <a href="#">VK</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

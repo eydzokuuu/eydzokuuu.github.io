@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - Sushi Time</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sushi Time</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="menu.html" style="color: #e60000;">Меню</a>
+            <a href="delivery.html">Доставка и оплата</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <button class="order-btn" onclick="location.href='order.html'">
+            Заказать (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <section>
+        <h2>Наше Меню</h2>
+        
+        <div class="menu-category">
+            <h3>🍣 Классические Суши</h3>
+            <div class="menu-items">
+                <div class="card">
+                    <img src="images/sushi-1.jpg" alt="Суши Лосось">
+                    <h3>Суши Лосось</h3>
+                    <p>Нежный лосось на рисе</p>
+                    <p><strong>250 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Суши Лосось', 250)">В корзину</button>
+                </div>
+                <div class="card">
+                    <img src="images/sushi-2.jpg" alt="Суши Тунец">
+                    <h3>Суши Тунец</h3>
+                    <p>Свежий тунец на рисе</p>
+                    <p><strong>280 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Суши Тунец', 280)">В корзину</button>
+                </div>
+                <div class="card">
+                    <img src="images/sushi-3.jpg" alt="Суши Угорь">
+                    <h3>Суши Угорь</h3>
+                    <p>Угорь с соусом унаги</p>
+                    <p><strong>320 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Суши Угорь', 320)">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>🍱 Роллы</h3>
+            <div class="menu-items">
+                <div class="card">
+                    <img src="images/sushi-4.jpg" alt="Роллы Калифорния">
+                    <h3>Роллы Калифорния</h3>
+                    <p>Краб, авокадо, огурец</p>
+                    <p><strong>350 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Роллы Калифорния', 350)">В корзину</button>
+                </div>
+                <div class="card">
+                    <img src="images/sushi-5.jpg" alt="Роллы Филадельфия">
+                    <h3>Роллы Филадельфия</h3>
+                    <p>Лосось, сливочный сыр</p>
+                    <p><strong>420 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Роллы Филадельфия', 420)">В корзину</button>
+                </div>
+                <div class="card">
+                    <img src="images/sushi-6.jpg" alt="Роллы Дракон">
+                    <h3>Роллы Дракон</h3>
+                    <p>Угорь, авокадо, огурец</p>
+                    <p><strong>480 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Роллы Дракон', 480)">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>🎎 Сеты</h3>
+            <div class="menu-items">
+                <div class="card">
+                    <img src="images/sushi-7.jpg" alt="Сет Филадельфия">
+                    <h3>Сет Филадельфия</h3>
+                    <p>8 роллов Филадельфия</p>
+                    <p><strong>990 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Сет Филадельфия', 990)">В корзину</button>
+                </div>
+                <div class="card">
+                    <img src="images/sushi-8.jpg" alt="Сет Император">
+                    <h3>Сет Император</h3>
+                    <p>Ассорти из 24 штук</p>
+                    <p><strong>1590 ₽</strong></p>
+                    <button class="add-to-cart" onclick="addToCart('Сет Император', 1590)">В корзину</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sushi Time | Все права защищены</p>
+        <p>
+            <a href="#">VK</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

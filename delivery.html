@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка и оплата - Sushi Time</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sushi Time</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="menu.html">Меню</a>
+            <a href="delivery.html" style="color: #e60000;">Доставка и оплата</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <button class="order-btn" onclick="location.href='order.html'">
+            Заказать (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <section>
+        <h2>🚚 Доставка и оплата</h2>
+        
+        <div class="menu-category">
+            <h3>Зоны доставки</h3>
+            <div class="card">
+                <h4>🚗 Зеленая зона (бесплатно)</h4>
+                <p>Центральный район - до 30 минут</p>
+                <p><strong>Минимальный заказ: 500 ₽</strong></p>
+            </div>
+            <div class="card">
+                <h4>🚙 Желтая зона (100 ₽)</h4>
+                <p>Свердловский, Кировский районы - до 45 минут</p>
+                <p><strong>Минимальный заказ: 700 ₽</strong></p>
+            </div>
+            <div class="card">
+                <h4>🚛 Красная зона (200 ₽)</h4>
+                <p>Отдаленные районы - до 60 минут</p>
+                <p><strong>Минимальный заказ: 1000 ₽</strong></p>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>⏰ Время доставки</h3>
+            <div class="card">
+                <p><strong>Пн-Чт:</strong> 10:00 - 23:00</p>
+                <p><strong>Пт-Вс:</strong> 10:00 - 00:00</p>
+                <p>Доставка в праздничные дни может занимать больше времени</p>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>💳 Способы оплаты</h3>
+            <div class="menu-items">
+                <div class="card">
+                    <h4>💵 Наличными</h4>
+                    <p>Оплата курьеру при получении</p>
+                </div>
+                <div class="card">
+                    <h4>💳 Картой онлайн</h4>
+                    <p>Оплата на сайте при оформлении заказа</p>
+                </div>
+                <div class="card">
+                    <h4>📱 Картой курьеру</h4>
+                    <p>Оплата картой через переносной терминал</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>📦 Самовывоз</h3>
+            <div class="card">
+                <p>📍 г. Красноярск, ул. Карамзина, 16</p>
+                <p><strong>Время работы:</strong> 10:00 - 23:00</p>
+                <p>Заказ готов через 20-30 минут после подтверждения</p>
+                <button class="order-btn" onclick="location.href='order.html'">Заказать с самовывозом</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sushi Time | Все права защищены</p>
+        <p>
+            <a href="#">VK</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
