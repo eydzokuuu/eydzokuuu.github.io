@@ -6,16 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sushi Time - Главная</title>
   
-  <!-- ПРЕДЗАГРУЗКА ВЕБ-ШРИФТОВ - ДОБАВЛЯЕМ ЭТИ 2 СТРОЧКИ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   
   <link rel="stylesheet" href="css/style.css">
   
-  <!-- FONT-DISPLAY SWAP - ДОБАВЛЯЕМ ЭТОТ СТИЛЬ -->
   <style>
-    /* Оптимизация загрузки шрифтов */
     @font-face {
       font-family: 'Roboto';
       font-style: normal;
@@ -32,19 +29,16 @@
       src: local('Roboto Bold'), local('Roboto-Bold');
     }
     
-    /* Базовые стили с системным шрифтом как fallback */
     body {
       font-family: Arial, sans-serif;
     }
     
-    /* Применяем веб-шрифт после загрузки */
     .fonts-loaded body {
       font-family: 'Roboto', Arial, sans-serif;
     }
   </style>
 </head>
 <body>
-  <!-- Остальной код без изменений -->
   <header>
     <h1>Sushi Time</h1>
     <nav>
@@ -61,7 +55,6 @@
     <h2>🔥 Акция: 2 сета по цене 1 🔥</h2>
   </div>
 
-  <!-- ... остальной контент ... -->
 
   <footer>
     <p>© 2025 Sushi Time | Все права защищены</p>
@@ -71,14 +64,11 @@
     </p>
   </footer>
 
-  <!-- СКРИПТ ДЛЯ ОПТИМИЗАЦИИ ШРИФТОВ - ДОБАВЛЯЕМ В КОНЕЦ -->
   <script>
-    // Мониторинг загрузки шрифтов
     document.fonts.ready.then(function() {
       document.documentElement.classList.add('fonts-loaded');
     });
     
-    // Fallback на случай если шрифты не загрузились
     setTimeout(function() {
       document.documentElement.classList.add('fonts-loaded');
     }, 3000);
@@ -87,3 +77,4 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
