@@ -3,40 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Sushi Time - доставка свежих суши и роллов в Красноярске. Быстрая доставка, лучшие цены, акции и скидки.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sushi Time - Главная</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
   <link rel="stylesheet" href="css/style.css">
-  
-  <style>
-    @font-face {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: local('Roboto'), local('Roboto-Regular');
-    }
-    
-    @font-face {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: local('Roboto Bold'), local('Roboto-Bold');
-    }
-    
-    body {
-      font-family: Arial, sans-serif;
-    }
-    
-    .fonts-loaded body {
-      font-family: 'Roboto', Arial, sans-serif;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -55,6 +23,46 @@
     <h2>🔥 Акция: 2 сета по цене 1 🔥</h2>
   </div>
 
+<section>
+    <h1>Суши и роллы с доставкой в Красноярске</h1>
+    <p>Закажите <strong>свежие суши</strong>, <strong>вкусные роллы</strong> и <strong>японские сеты</strong> с быстрой доставкой по Красноярску. Лучшие цены на <strong>суши лосось</strong>, <strong>роллы Филадельфия</strong> и <strong>Калифорния</strong>.</p>
+</section>
+  
+  <section>
+    <h2>Популярные позиции</h2>
+    <div class="menu-items">
+      <div class="card">
+        <img src="images/sushi-1.jpg" alt="Суши Лосось">
+        <h3>Суши Лосось</h3>
+        <p>250 ₽</p>
+        <button class="add-to-cart" onclick="addToCart('Суши Лосось', 250)">В корзину</button>
+      </div>
+      <div class="card">
+        <img src="images/sushi-2.jpg" alt="Роллы Калифорния">
+        <h3>Роллы Калифорния</h3>
+        <p>350 ₽</p>
+        <button class="add-to-cart" onclick="addToCart('Роллы Калифорния', 350)">В корзину</button>
+      </div>
+      <div class="card">
+        <img src="images/sushi-3.jpg" alt="Сет Филадельфия">
+        <h3>Сет Филадельфия</h3>
+        <p>990 ₽</p>
+        <button class="add-to-cart" onclick="addToCart('Сет Филадельфия', 990)">В корзину</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>О нас</h2>
+    <p>Мы готовим только из свежих продуктов. Быстрая доставка и лучшие цены в городе!</p>
+  </section>
+
+  <section>
+    <h2>Последние отзывы</h2>
+    <blockquote>"Очень вкусно, заказываем всей семьёй!" – Анна</blockquote>
+    <blockquote>"Быстро привезли, всё свежее!" – Магомед</blockquote>
+    <a href="reviews.html" class="more-link">Все отзывы</a>
+  </section>
 
   <footer>
     <p>© 2025 Sushi Time | Все права защищены</p>
@@ -64,17 +72,7 @@
     </p>
   </footer>
 
-  <script>
-    document.fonts.ready.then(function() {
-      document.documentElement.classList.add('fonts-loaded');
-    });
-    
-    setTimeout(function() {
-      document.documentElement.classList.add('fonts-loaded');
-    }, 3000);
-  </script>
-  
   <script src="js/script.js"></script>
 </body>
-</html>
 
+</html>
