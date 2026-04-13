@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Закупки - ЛокоТех</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <div class="procurement-content">
+                    <h1 class="section-title">Закупки</h1>
+                    <p class="procurement-text" style="font-size: 16px; line-height: 1.8;">Максимальная прозрачность проведения конкурсных процедур. Группа компаний "ЛокоТех" уделяет большое внимание привлечению заказчиков. Компании предлагают широкий спектр услуг, включая разработку стратегии развития, консультации, обучение персонала, а также проведение экспертизы.</p>
+                    <p class="procurement-text" style="margin-top: 20px; font-size: 16px; line-height: 1.8;">Мы приглашаем к сотрудничеству надежных поставщиков и подрядчиков. Все закупочные процедуры проводятся в соответствии с законодательством РФ и внутренними регламентами компании.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="../index.html" class="btn-link">← Вернуться на главную</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function loadHeaderFooter() {
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    setActiveNavLink();
+                    initMobileMenu();
+                })
+                .catch(error => console.error('Ошибка загрузки header:', error));
+
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                })
+                .catch(error => console.error('Ошибка загрузки footer:', error));
+        }
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadHeaderFooter);
+    </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛокоТех - Корпоративный промо-сайт</title>
+    <meta name="description" content="ЛокоТех - крупнейший в Европе локомотивремонтальный холдинг">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <!-- Hero блок -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-stat">15 000</div>
+                <p>суммарный объем обслуживаемых локомотивов в год</p>
+            </div>
+        </section>
+
+        <!-- Блок БИЗНЕС -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">БИЗНЕС</h2>
+                <div class="business-grid" id="businessGrid"></div>
+            </div>
+        </section>
+
+        <!-- Блок ПРЕСС-ЦЕНТР -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">ПРЕСС-ЦЕНТР</h2>
+                <div class="press-list" id="pressList"></div>
+                <div class="press-link">
+                    <a href="pages/press-center.html" class="btn-link">...перейти в пресс-центр</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок НАША СИЛА - В ЛЮДЯХ -->
+        <section class="section people-section">
+            <div class="container">
+                <h2 class="section-title">НАША СИЛА – В ЛЮДЯХ!</h2>
+                <a href="pages/our-people.html" class="btn-link">...перейти в раздел</a>
+            </div>
+        </section>
+
+        <!-- Блок КЛЮЧЕВЫЕ ФАКТЫ -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">КЛЮЧЕВЫЕ ФАКТЫ</h2>
+                <div class="facts-text">
+                    <p>Крупнейший в Европе локомотивовремонтальный холдинг ООО "ЛокоТех" управляет активами, обеспечивающими обслуживание, ремонт, модернизацию и передачу в лизинг локомотивов, производство узлов и деталей для предприятий железнодорожного машиностроения. <a href="pages/about.html" style="color: var(--secondary-color); text-decoration: none;">Подробнее о компании →</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок РЕГИОНАЛЬНЫЕ НОВОСТИ -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">РЕГИОНАЛЬНЫЕ НОВОСТИ</h2>
+                <div class="news-grid" id="newsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Блок ЗАКУПКИ -->
+        <section class="section">
+            <div class="container">
+                <div class="procurement-content">
+                    <h2 class="section-title">ЗАКУПКИ</h2>
+                    <p class="procurement-text">Максимальная прозрачность проведения конкурсных процедур. Группа компаний "ЛокоТех" уделяет большое внимание привлечению заказчиков. Компании предлагают широкий спектр услуг, включая разработку стратегии развития, консультации, обучение персонала, а также проведение экспертизы.</p>
+                    <a href="pages/procurement.html" class="btn-link">Перейти в раздел →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Данные для динамической загрузки
+        const businessAreas = [
+            { name: 'Сервисное обслуживание', icon: 'service.svg', url: 'pages/business.html' },
+            { name: 'Ремонт и модернизация', icon: 'repair.svg', url: 'pages/business.html' },
+            { name: 'Реализация', icon: 'sales.svg', url: 'pages/business.html' },
+            { name: 'Снабжение', icon: 'supply.svg', url: 'pages/business.html' },
+            { name: 'Закупки', icon: 'procurement.svg', url: 'pages/procurement.html' }
+        ];
+
+        const pressItems = ['Главные новости', 'Региональные новости', 'СМИ о нас'];
+
+        const newsItems = [
+            {
+                title: 'Корпоративная газета «ЛокоТех» вошла в число победителей XXIII Всероссийского конкурса журналистов «Экономическое возрождение России»',
+                date: '15 марта 2025',
+                url: '#'
+            },
+            {
+                title: 'Газета «ЛокоТех» признана победителем в номинации «Лучшие отраслевые средства массовой информации по итогам 2025 года»',
+                date: '10 декабря 2025',
+                url: '#'
+            }
+        ];
+
+        // Загрузка бизнес-направлений
+        function loadBusinessGrid() {
+            const grid = document.getElementById('businessGrid');
+            if (grid) {
+                grid.innerHTML = businessAreas.map(area => `
+                    <a href="${area.url}" class="business-card">
+                        <div class="business-icon">
+                            <img src="images/icons/${area.icon}" alt="${area.name}">
+                        </div>
+                        <h3>${area.name}</h3>
+                    </a>
+                `).join('');
+            }
+        }
+
+        // Загрузка пресс-центра
+        function loadPressList() {
+            const list = document.getElementById('pressList');
+            if (list) {
+                list.innerHTML = pressItems.map(item => `
+                    <div class="press-item">${item}</div>
+                `).join('');
+            }
+        }
+
+        // Загрузка новостей
+        function loadNewsGrid() {
+            const grid = document.getElementById('newsGrid');
+            if (grid) {
+                grid.innerHTML = newsItems.map(news => `
+                    <div class="news-card">
+                        <div class="news-date">${news.date}</div>
+                        <h3 class="news-title">${news.title}</h3>
+                        <a href="${news.url}" class="news-link">подробнее →</a>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Загрузка header и footer
+        function loadHeaderFooter() {
+            // Header
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    setActiveNavLink();
+                    initMobileMenu();
+                })
+                .catch(error => console.error('Ошибка загрузки header:', error));
+
+            // Footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                })
+                .catch(error => console.error('Ошибка загрузки footer:', error));
+        }
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBusinessGrid();
+            loadPressList();
+            loadNewsGrid();
+            loadHeaderFooter();
+        });
+    </script>
+</body>
+</html>

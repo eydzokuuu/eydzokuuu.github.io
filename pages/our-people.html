@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карьера - ЛокоТех</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Наша сила – в людях!</h1>
+                <div class="facts-text" style="margin-top: 40px;">
+                    <p style="font-size: 18px; line-height: 1.8;">Сотрудники компании «ЛокоТех» — это высококвалифицированные специалисты, профессионалы своего дела. Мы ценим каждого работника и создаем комфортные условия для развития и реализации потенциала.</p>
+                    <p style="margin-top: 20px; font-size: 18px; line-height: 1.8;">В компании работают лучшие инженеры, технические специалисты и управленцы, обеспечивающие бесперебойную работу и развитие железнодорожной отрасли России.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="../index.html" class="btn-link">← Вернуться на главную</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function loadHeaderFooter() {
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    setActiveNavLink();
+                    initMobileMenu();
+                })
+                .catch(error => console.error('Ошибка загрузки header:', error));
+
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                })
+                .catch(error => console.error('Ошибка загрузки footer:', error));
+        }
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadHeaderFooter);
+    </script>
+</body>
+</html>

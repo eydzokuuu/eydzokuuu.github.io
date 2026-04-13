@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бизнес-направления - ЛокоТех</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Бизнес-направления</h1>
+                <p class="section-subtitle">Основные направления деятельности компании</p>
+                
+                <div class="business-grid" id="businessGrid"></div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="../index.html" class="btn-link">← Вернуться на главную</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const businessAreas = [
+            { name: 'Сервисное обслуживание', icon: 'service.svg', url: '#' },
+            { name: 'Ремонт и модернизация', icon: 'repair.svg', url: '#' },
+            { name: 'Реализация', icon: 'sales.svg', url: '#' },
+            { name: 'Снабжение', icon: 'supply.svg', url: '#' },
+            { name: 'Закупки', icon: 'procurement.svg', url: 'procurement.html' }
+        ];
+
+        function loadBusinessGrid() {
+            const grid = document.getElementById('businessGrid');
+            if (grid) {
+                grid.innerHTML = businessAreas.map(area => `
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <img src="../images/icons/${area.icon}" alt="${area.name}">
+                        </div>
+                        <h3>${area.name}</h3>
+                        <p style="margin-top: 10px; font-size: 14px; color: #666;">Подробное описание направления</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function loadHeaderFooter() {
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    setActiveNavLink();
+                    initMobileMenu();
+                })
+                .catch(error => console.error('Ошибка загрузки header:', error));
+
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                })
+                .catch(error => console.error('Ошибка загрузки footer:', error));
+        }
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBusinessGrid();
+            loadHeaderFooter();
+        });
+    </script>
+</body>
+</html>

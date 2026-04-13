@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пресс-центр - ЛокоТех</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Пресс-центр</h1>
+                <p class="section-subtitle">Новости и события компании</p>
+                
+                <div class="news-grid" id="newsGrid"></div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="../index.html" class="btn-link">← Вернуться на главную</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const newsItems = [
+            {
+                title: 'Корпоративная газета «ЛокоТех» вошла в число победителей XXIII Всероссийского конкурса журналистов «Экономическое возрождение России»',
+                date: '15 марта 2025',
+                url: '#'
+            },
+            {
+                title: 'Газета «ЛокоТех» признана победителем в номинации «Лучшие отраслевые средства массовой информации по итогам 2025 года»',
+                date: '10 декабря 2025',
+                url: '#'
+            }
+        ];
+
+        function loadNewsGrid() {
+            const grid = document.getElementById('newsGrid');
+            if (grid) {
+                grid.innerHTML = newsItems.map(news => `
+                    <div class="news-card">
+                        <div class="news-date">${news.date}</div>
+                        <h3 class="news-title">${news.title}</h3>
+                        <a href="${news.url}" class="news-link">подробнее →</a>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function loadHeaderFooter() {
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    setActiveNavLink();
+                    initMobileMenu();
+                })
+                .catch(error => console.error('Ошибка загрузки header:', error));
+
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                })
+                .catch(error => console.error('Ошибка загрузки footer:', error));
+        }
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadNewsGrid();
+            loadHeaderFooter();
+        });
+    </script>
+</body>
+</html>
