@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#1a3a5c">
-    <!-- Гаечный ключ -->
-    <path d="M38 18 L54 34 L50 38 L44 32 L40 36 L46 42 L42 46 L26 30 Z" fill="none" stroke="#1a3a5c" stroke-width="2.5" stroke-linejoin="round"/>
-    <circle cx="28" cy="28" r="8" fill="none" stroke="#c0392b" stroke-width="2.5"/>
-    <path d="M22 22 L16 28 L20 32" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round"/>
-</svg>
